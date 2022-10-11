@@ -22,7 +22,11 @@
                 <field name="is_late"/>
               </group>
               <group>
+                          
                 <field name="image_url" widget="image_preview"/>
+                <t-if="!record.image_url.raw_value">
+                  <field name="image_url" widget="image_preview" t-att-options="{'border': 'border: 2px solid red;'}"/>
+                </t-if>
               </group>
             </group>
           </sheet>

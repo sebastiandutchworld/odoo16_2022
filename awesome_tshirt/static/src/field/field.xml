@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="awesome_tshirt.Field" owl="1">
+        <div class="field" style="width: 18rem;">
+            <div class="field-body">
+                <t t-slot="field" />
+            </div>
+        </div>
+    </t>
+</templates>

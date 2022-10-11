@@ -23,11 +23,11 @@ export class PieChart extends Component {
             this.renderChart();
         });
 
-        // onWillUnmount(() => {
-        //     if (this.chart) {
-        //         this.chart.destroy();
-        //     }
-        // });
+        onWillUnmount(() => {
+            if (this.chart) {
+                this.chart.destroy();
+            }
+        });
     }
 
     onPieClick(ev, chartElem) {
@@ -40,7 +40,7 @@ export class PieChart extends Component {
             this.chart.destroy();
         }
         this.chart = new Chart(this.canvasRef.el, {
-            type: "pie",
+            type: "graph",
             data: {
                 labels: this.labels,
                 datasets: [

@@ -40,7 +40,7 @@ export class PieChart extends Component {
             this.chart.destroy();
         }
         this.chart = new Chart(this.canvasRef.el, {
-            type: "graph",
+            type: "bar",
             data: {
                 labels: this.labels,
                 datasets: [

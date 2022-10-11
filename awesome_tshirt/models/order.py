@@ -109,12 +109,3 @@ class TShirtOrder(models.Model):
             'orders_by_size': {g['size']: g['quantity'] for g in orders_by_size},
             'total_amount': total_amount or 0,
         }
-
-    #opens awesome_tshirt.order_form_view
-    def open_order(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'awesome_tshirt.order',
-            'view_mode': 'form',
-            'res_id': self.id,
-        }

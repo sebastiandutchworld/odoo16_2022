@@ -5,11 +5,12 @@ import { Layout } from "@web/search/layout";
 import { getDefaultConfig } from "@web/views/view";
 import { useService } from "@web/core/utils/hooks";
 import { Domain } from "@web/core/domain";
-import { Card } from "./card/card";
-import { PieChart } from "./pie_chart/pie_chart";
+import { Card } from "../card/card";
+import { PieChart } from "../pie_chart/pie_chart";
+import { CustomerAutocomplete } from "../customer_autocomplete/customer_autocomplete";
 import { sprintf } from "@web/core/utils/strings";
 
-const { Component, useSubEnv, onWillStart } = owl;
+const { Component, useSubEnv, useState } = owl;
 
 class AwesomeDashboard extends Component {
     setup() {
@@ -24,7 +25,8 @@ class AwesomeDashboard extends Component {
         };
 
         this.action = useService("action");
-        this.tshirtService = useService("tshirtService");
+        const tshirtService = useService("tshirtService");
+        this.statistics = useState(tshirtService.statistics);
 
         this.keyToString = {
             average_quantity: this.env._t("Average amount of t-shirt by order this month"),
@@ -35,9 +37,6 @@ class AwesomeDashboard extends Component {
             nb_new_orders: this.env._t("Number of new orders this month"),
             total_amount: this.env._t("Total amount of new orders this month"),
         };
-        onWillStart(async () => {
-            this.statistics = await this.tshirtService.loadStatistics();
-        });
     }
 
     openCustomerView() {
@@ -75,7 +74,7 @@ class AwesomeDashboard extends Component {
     }
 }
 
-AwesomeDashboard.components = { Layout, Card, PieChart };
+AwesomeDashboard.components = { Layout, Card, PieChart, CustomerAutocomplete };
 AwesomeDashboard.template = "awesome_tshirt.clientaction";
 
-registry.category("actions").add("awesome_tshirt.dashboard", AwesomeDashboard);
+registry.category("lazy_components").add("AwesomeDashboard", AwesomeDashboard);

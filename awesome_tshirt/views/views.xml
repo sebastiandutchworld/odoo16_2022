@@ -75,18 +75,18 @@
     </record>
 
     <!-- form view with id awesome_tshirt.order_form_view -->
-    <record id="orders_tree_view" model="ir.ui.view">
-      <field name="name">awesome_tshirt.orders.tree</field>
+    <record id="orders_form_view" model="ir.ui.view">
+      <field name="name">awesome_tshirt.orders.form</field>
       <field name="model">awesome_tshirt.order</field>
       <field name="arch" type="xml">
-        <tree>
+        <form>
           <field name="customer_id"/>
           <field name="size"/>
           <field name="quantity"/>
           <field name="amount"/>
           <field name="is_late" widget="late_boolean"/>
           <field name="state"/>
-        </tree>
+        </form>
       </field>
 
     <record id="orders_list_view" model="ir.ui.view">

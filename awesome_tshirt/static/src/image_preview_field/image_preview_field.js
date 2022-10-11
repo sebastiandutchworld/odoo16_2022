@@ -12,3 +12,6 @@ ImagePreviewField.components = { CharField };
 ImagePreviewField.supportedTypes = ["char"];
 
 registry.category("fields").add("image_preview", ImagePreviewField);
+
+
+

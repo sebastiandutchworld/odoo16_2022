@@ -23,11 +23,11 @@ export class PieChart extends Component {
             this.renderChart();
         });
 
-        onWillUnmount(() => {
-            if (this.chart) {
-                this.chart.destroy();
-            }
-        });
+        // onWillUnmount(() => {
+        //     if (this.chart) {
+        //         this.chart.destroy();
+        //     }
+        // });
     }
 
     onPieClick(ev, chartElem) {

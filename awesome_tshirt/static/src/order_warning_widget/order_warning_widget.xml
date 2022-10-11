@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<templates xml:space="preserve">
+<templates xml:space="preserve" id="template" name="Order Warning Widget">
     <t t-name="awesome_tshirt.OrderWarningWidget" owl="1">
         <t t-set="imageWarning" t-value="props.record.data.image_url.length === 0"/>
         <t t-set="promoWarning" t-value="props.record.data.amount > 100"/>
